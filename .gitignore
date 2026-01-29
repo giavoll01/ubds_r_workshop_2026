@@ -51,3 +51,5 @@ rsconnect/
 
 *.png
 pictures/
+*log
+
