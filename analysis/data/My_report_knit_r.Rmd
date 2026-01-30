@@ -1,0 +1,28 @@
+---
+title: "My Report"
+author: "Gia Vollmer"
+date: "2026-01-30"
+output: html_document
+---
+
+*This is an italicized list*
+
+**This is a bold list**
+
+# This is not a comment
+
+## This is Heading 2
+
+##### This is heading 5
+
+We can make lists
+
+-   This is item #1
+-   This is item #2
+-   This is item #3
+
+We can make numbered lists
+
+1.  This is item #1
+2.  This is item #2
+3.  This is item #3
