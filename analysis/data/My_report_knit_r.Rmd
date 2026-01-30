@@ -26,3 +26,15 @@ We can make numbered lists
 1.  This is item #1
 2.  This is item #2
 3.  This is item #3
+
+```{r load_data}
+library("ggplot2")
+
+gapminder <- read.csv("gapminder.csv")
+```
+
+```{r plot}
+ggplot(data = gapminder,
+       mapping = aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
