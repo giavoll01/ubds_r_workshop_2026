@@ -71,3 +71,5 @@ head(calcGDP(gapminder, country = "Australia"))
 
 head(calcGDP(gapminder, 2007,"Australia"))
 
+
+unique(gapminder$country)
