@@ -1,4 +1,5 @@
 library(dplyr)
+library(ggplot2)
 
 mean(gapminder$gdpPercap[gapminder$continent == "Africa"])
 
@@ -81,7 +82,29 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
             mean_gdp_billion = mean(gdp_billion),
             sd_gdp_billion = sd(gdp_billion))
 
-gdp_pop_bycontinents_byyear
+gdp_pop_bycontinents_byyear_above25 <- gapminder %>%
+  mutate(gdp_billion = ifelse(lifeExp > 25, gdpPercap * pop / 10^9, NA)) %>%
+  group_by(continent, year) %>%
+  summarize(mean_gdpPercap = mean(gdpPercap),
+            sd_gdpPercap = sd(gdpPercap),
+            mean_pop = mean(pop),
+            sd_pop = sd(pop),
+            mean_gdp_billion = mean(gdp_billion),
+            sd_gdp_billion = sd(gdp_billion))
+
+
+gdp_pop_bycontinents_byyear_above25
+
+
+# Combining ggplot2 and dplyr 
+
+gapminder %>% 
+  filter(continent == "Americas") %>%
+  ggplot(mapping = aes(x = year, y = lifeExp)) +
+  geom_line() +
+  facet_wrap( ~ country) +
+  theme(axis.text.x = element_text(angle = 45))
+
 
 
 
